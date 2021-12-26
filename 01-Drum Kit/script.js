@@ -1,7 +1,7 @@
 /****************
  * DOM Elements
  */
-const keys = document.querySelectorAll('.key');
+const keys = document.querySelector(".keys");
 
 /****************
  * Functions
@@ -17,21 +17,19 @@ function handleKeydownEvent(e) {
   audio.currentTime = 0; // Rewind to start
   audio.play();
 
-  key.classList.add('playing');
+  key.classList.add("playing");
 }
 
 function handleRemoveTransition(e) {
-  if (e.propertyName !== 'transform') {
+  if (e.propertyName !== "transform") {
     return;
   }
 
-  this.classList.remove('playing');
+  e.target.classList.remove("playing");
 }
 
 /****************
  * Event Listeners
  */
-window.addEventListener('keydown', handleKeydownEvent);
-keys.forEach((key) =>
-  key.addEventListener('transitionend', handleRemoveTransition)
-);
+window.addEventListener("keydown", handleKeydownEvent);
+keys.addEventListener("transitionend", handleRemoveTransition);
