@@ -1,7 +1,11 @@
-// DOM Elements
+/*
+  DOM Elements
+*/
 const inputs = document.querySelectorAll(".controls input");
 
-// Functions
+/*
+  Functions
+*/
 function handleUpdate() {
   const suffix = this.dataset.sizing || "";
   document.documentElement.style.setProperty(
@@ -10,6 +14,8 @@ function handleUpdate() {
   );
 }
 
-// Event Listeners
+/*
+  Event Listeners
+*/
 inputs.forEach((input) => input.addEventListener("change", handleUpdate));
 inputs.forEach((input) => input.addEventListener("mousemove", handleUpdate));
